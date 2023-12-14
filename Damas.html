@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="css/login_overlay.css" rel='stylesheet' type='text/css' />
+    <link href="css/style6.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="css/shop.css" type="text/css" />
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href="css/estilos.css" rel='stylesheet' type='text/css' />
+    <link href="css/fontawesome-all.css" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet" />
+    <link
+        href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+        rel="stylesheet" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .producto {
+            width: 250px;
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+        }
+
+        h2,
+        p,
+        .precio {
+            margin: 0;
+            font-size: 22px;
+            font-weight: bold !important;
+        }
+
+        p {
+            color: #0056b3;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .precio {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .carrito-enlace {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        .carrito-enlace:hover {
+            background-color: #0056b3;
+        }
+
+        .carrito-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .carrito-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .carrito-lista {
+            list-style: none;
+            padding: 0;
+        }
+
+        .carrito-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+
+        .carrito-item img {
+            max-width: 60px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="productosDivision">
+        <marquee direction="left" behavior="scroll" scrollamount="20">
+            <h1>Productos en oferta!</h1>
+        </marquee>
+    </div>
+    <div class="banner-top container-fluid centrarReferencias">
+        <a href="Ropa.html" class="referencia">Ropa</a>
+        <a href="Accesorios.html" class="referencia">Accesorios</a>
+        <a href="Hombre.html" class="referencia">Ropa de Varones</a>
+        <a href="Ninos.html" class="referencia">Ropa de ni&ntilde;os</a>
+        <a href="Damas.html" class="referencia">Ropa de damas</a>
+        <button onclick="mostrarProductosEnCarrito()">Ver Carrito</button>
+    </div>
+
+    <!-- Producto 1 -->
+    <div class="producto" onclick="mostrarDetalle('Vestido Floral', 59.99)">
+        <img src="imagenes/VestidoFloral.jpg" alt="Vestido Floral">
+        <h2>Vestido Floral</h2>
+        <p class="precio">$59.99</p>
+        <p>Vestido floral perfecto para ocasiones especiales.</p>
+    </div>
+
+    <!-- Producto 2 -->
+    <div class="producto" onclick="mostrarDetalle('Blusa Elegante', 39.99)">
+        <img src="imagenes/BlusaElegante.jpg" alt="Blusa Elegante">
+        <h2>Blusa Elegante</h2>
+        <p class="precio">$39.99</p>
+        <p>Blusa elegante para un estilo sofisticado y vers&aacute;til.</p>
+    </div>
+
+    <!-- Producto 3 -->
+    <div class="producto" onclick="mostrarDetalle('Falda Plisada', 34.99)">
+        <img src="imagenes/FaldaPlisada.jpg" alt="Falda Plisada">
+        <h2>Falda Plisada</h2>
+        <p class="precio">$34.99</p>
+        <p>Falda plisada para un look femenino y elegante.</p>
+    </div>
+
+    <!-- Producto 4 -->
+    <div class="producto" onclick="mostrarDetalle('Conjunto Deportivo', 49.99)">
+        <img src="imagenes/ConjuntoDeportivo.jpg" alt="Conjunto Deportivo">
+        <h2>Conjunto Deportivo</h2>
+        <p class="precio">$49.99</p>
+        <p>Conjunto deportivo para un estilo activo y c&oacute;modo.</p>
+    </div>
+
+    <!-- Producto 5 -->
+    <div class="producto" onclick="mostrarDetalle('Jeans Skinny', 44.99)">
+        <img src="imagenes/JeansSkinny.jpg" alt="Jeans Skinny">
+        <h2>Jeans Skinny</h2>
+        <p class="precio">$44.99</p>
+        <p>Jeans ajustados para un look moderno y a la moda.</p>
+    </div>
+
+    <!-- Producto 6 -->
+    <div class="producto" onclick="mostrarDetalle('Sweater de Punto', 29.99)">
+        <img src="imagenes/SweaterPunto.jpg" alt="Sweater de Punto">
+        <h2>Sweater de Punto</h2>
+        <p class="precio">$29.99</p>
+        <p>Sweater de punto para mantenerte abrigada con estilo.</p>
+    </div>
+
+    <!-- Producto 7 -->
+    <div class="producto" onclick="mostrarDetalle('Vestido de Noche', 79.99)">
+        <img src="imagenes/VestidoNoche.jpg" alt="Vestido de Noche">
+        <h2>Vestido de Noche</h2>
+        <p class="precio">$79.99</p>
+        <p>Vestido de noche para lucir elegante en eventos especiales.</p>
+    </div>
+
+    <!-- Producto 8 -->
+    <div class="producto" onclick="mostrarDetalle('Chaqueta de Cuero', 89.99)">
+        <img src="imagenes/ChaquetaCuero.jpg" alt="Chaqueta de Cuero">
+        <h2>Chaqueta de Cuero</h2>
+        <p class="precio">$89.99</p>
+        <p>Chaqueta de cuero para un look elegante y atemporal.</p>
+    </div>
+
+    <!-- Producto 9 -->
+    <div class="producto" onclick="mostrarDetalle('Pantalones Palazzo', 54.99)">
+        <img src="imagenes/PantalonesPalazzo.webp" alt="Pantalones Palazzo">
+        <h2>Pantalones Palazzo</h2>
+        <p class="precio">$54.99</p>
+        <p>Pantalones palazzo para un estilo c&oacute;modo y elegante.</p>
+    </div>
+
+    <!-- Producto 10 -->
+    <div class="producto" onclick="mostrarDetalle('Camiseta Estampada', 24.99)">
+        <img src="imagenes/CamisetaEstampada.jpg" alt="Camiseta Estampada">
+        <h2>Camiseta Estampada</h2>
+        <p class="precio">$24.99</p>
+        <p>Camiseta estampada para un look casual y divertido.</p>
+    </div>
+
+    <!-- Producto 11 -->
+    <div class="producto" onclick="mostrarDetalle('Abrigo Elegante', 79.99)">
+        <img src="imagenes/AbrigoElegante.jpg" alt="Abrigo Elegante">
+        <h2>Abrigo Elegante</h2>
+        <p class="precio">$79.99</p>
+        <p>Abrigo elegante para mantenerte c&aacute;lida con estilo.</p>
+    </div>
+
+    <!-- Producto 12 -->
+    <div class="producto" onclick="mostrarDetalle('Blazer Clásico', 49.99)">
+        <img src="imagenes/BlazerClasico.jpg" alt="Blazer Clásico">
+        <h2>Blazer Cl&aacute;sico</h2>
+        <p class="precio">$49.99</p>
+        <p>Blazer cl&aacute;sico para un look profesional y sofisticado.</p>
+    </div>
+
+    <!-- Producto 13 -->
+    <div class="producto" onclick="mostrarDetalle('Vestido Midi', 39.99)">
+        <img src="imagenes/VestidoMidi.jpg" alt="Vestido Midi">
+        <h2>Vestido Midi</h2>
+        <p class="precio">$39.99</p>
+        <p>Vestido midi para un estilo vers&aacute;til y elegante.</p>
+    </div>
+
+    <!-- Producto 14 -->
+    <div class="producto" onclick="mostrarDetalle('Suéter Oversize', 34.99)">
+        <img src="imagenes/SueterOversize.jpg" alt="Suéter Oversize">
+        <h2>Su&eacute;ter Oversize</h2>
+        <p class="precio">$34.99</p>
+        <p>Su&eacute;ter oversize para un look relajado y c&oacute;modo.</p>
+    </div>
+
+    <!-- Producto 15 -->
+    <div class="producto" onclick="mostrarDetalle('Vestido Estampado', 29.99)">
+        <img src="imagenes/VestidoEstampado.webp" alt="Vestido Estampado">
+        <h2>Vestido Estampado</h2>
+        <p class="precio">$29.99</p>
+        <p>Vestido estampado para un look fresco y juvenil.</p>
+    </div>
+
+    <script>
+        var carrito = [];
+
+        function agregarAlCarrito(nombre, precio) {
+            carrito.push({ nombre: nombre, precio: precio });
+            actualizarCarrito();
+        }
+
+        function mostrarDetalle(nombre, precio) {
+            alert(`Detalles de ${nombre}:\nPrecio: $${precio}`);
+            agregarAlCarrito(nombre, precio);
+        }
+
+        function actualizarCarrito() {
+            var carritoLista = document.querySelector('.carrito-lista');
+            carritoLista.innerHTML = ''; 
+
+            carrito.forEach(function (producto) {
+                var nuevoItem = document.createElement('li');
+                nuevoItem.classList.add('carrito-item');
+                nuevoItem.innerHTML = `
+                    <img src="imagen_producto1.jpg" alt="${producto.nombre}">
+                    <span>${producto.nombre}</span>
+                    <span>$${producto.precio}</span>
+                `;
+                carritoLista.appendChild(nuevoItem);
+            });
+        }
+
+        function mostrarProductosEnCarrito() {
+            if (carrito.length === 0) {
+                alert('El carrito esta vacio');
+            } else {
+                var productosEnCarrito = carrito.map(function (producto) {
+                    return `${producto.nombre} - $${producto.precio}`;
+                });
+                alert('Productos en el carrito:\n' + productosEnCarrito.join('\n'));
+            }
+        }
+    </script>
+</body>
+</html>

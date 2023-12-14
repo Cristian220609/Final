@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Login de Usuario</title>
+        <link href="css/estilos.css" rel='stylesheet' type='text/css' />
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #b34343;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #222222;
+            overflow: hidden;
+            position: relative; 
+        }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Iniciar Sesi&oacute;n</h2>
+            <form method="post" action="login.php">
+                <label>Email:</label><br>
+                <input type="text" name="email" required><br><br>
+                <label>Contrase&ntilde;a:</label>
+                <input type="password" name="contrasena" required><br><br>
+                <input type="hidden" id="saludo" name="saludo" value="">
+                <input type="submit" value="Iniciar Sesi&oacute;n"><br><br>     
+            </form>
+            <button style="font-size: 25px;" onclick="window.history.back()">Retroceder</button>  
+            <a href="logout.php">
+                <button style="font-size: 25px;">Cerrar Sesi&oacute;n</button>
+            </a>   
+        </div>
+        <div class="wave2"></div>
+        <script>
+            function capturarSaludo() {
+                var saludo = prompt("Ingrese su saludo:");
+                document.getElementById('saludo').value = saludo;
+            }
+        </script>
+    </body>
+</html>

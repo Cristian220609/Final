@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="css/login_overlay.css" rel='stylesheet' type='text/css' />
+    <link href="css/style6.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="css/shop.css" type="text/css" />
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href="css/estilos.css" rel='stylesheet' type='text/css' />
+    <link href="css/fontawesome-all.css" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet" />
+    <link
+        href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+        rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .producto {
+            width: 250px;
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+        }
+
+        h2,
+        p,
+        .precio {
+            margin: 0;
+            font-size: 22px;
+            font-weight: bold !important;
+        }
+
+        p {
+            color: #0056b3;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .precio {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .carrito-enlace {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        .carrito-enlace:hover {
+            background-color: #0056b3;
+        }
+
+        .carrito-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .carrito-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .carrito-lista {
+            list-style: none;
+            padding: 0;
+        }
+
+        .carrito-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+
+        .carrito-item img {
+            max-width: 60px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="productosDivision">
+        <marquee direction="left" behavior="scroll" scrollamount="20">
+            <h1>Productos en oferta!</h1>
+        </marquee>
+    </div>
+
+    <div class="banner-top container-fluid centrarReferencias">
+        <a href="Ropa.html" class="referencia">Ropa</a>
+        <a href="Accesorios.html" class="referencia">Accesorios</a>
+        <a href="Hombre.html" class="referencia">Ropa de Varones</a>
+        <a href="Ninos.html" class="referencia">Ropa de ni&ntilde;os</a>
+        <a href="Damas.html" class="referencia">Ropa de damas</a>
+    </div>
+
+    <div id="detallesProducto" style="display: none;">
+        <h3>Detalles del Producto</h3>
+        <div id="detalleImagen"></div>
+        <div id="detalleNombre"></div>
+        <div id="detallePrecio"></div>
+        <input type="submit" name="submit" value="check-in" class="buy_now" onclick="agregarAlCarrito()">
+    </div>
+
+    <!-- Producto 1 -->
+    <div class="producto" onclick="mostrarDetalle('Camiseta Casual Hombre', 22.99, 'imagenes/CamisaCasualHombre.jpg')">
+        <img src="imagenes/CamisaCasualHombre.jpg" alt="Camiseta Casual Hombre">
+        <h2>Camiseta Casual Hombre</h2>
+        <p class="precio">$22.99</p>
+        <p>Camiseta casual de algodón para un look cómodo y moderno.</p>
+    </div>
+
+    <!-- Producto 2 -->
+    <div class="producto" onclick="mostrarDetalle('Jeans Slim Fit Hombre', 34.99, 'imagenes/carrito.png')">
+        <img src="imagenes/JeanHombre.jpg" alt="Jeans Slim Fit Hombre">
+        <h2>Jeans Slim Fit Hombre</h2>
+        <p class="precio">$34.99</p>
+        <p>Jeans ajustados para un estilo moderno y c&oacute;modo.</p>
+    </div>
+
+    <!-- Producto 3 -->
+    <div class="producto" onclick="mostrarDetalle('Chaqueta de Cuero Hombre', 99.99, 'imagenes/carrito.png')">
+        <img src="imagenes/chaquetaHombre.jpg" alt="Chaqueta de Cuero Hombre">
+        <h2>Chaqueta de Cuero Hombre</h2>
+        <p class="precio">$99.99</p>
+        <p>Chaqueta de cuero para un look elegante y atemporal.</p>
+    </div>
+
+    <!-- Producto 4 -->
+    <div class="producto" onclick="mostrarDetalle('Pantalones Deportivos Hombre', 29.99, 'imagenes/carrito.png')">
+        <img src="imagenes/PantalonDeportivoHombre.webp" alt="Pantalones Deportivos Hombre">
+        <h2>Pantalones Deportivos Hombre</h2>
+        <p class="precio">$29.99</p>
+        <p>Pantalones deportivos para un estilo activo y c&oacute;modo.</p>
+    </div>
+
+    <!-- Producto 5 -->
+    <div class="producto" onclick="mostrarDetalle('Camisa Formal Hombre', 39.99, 'imagenes/carrito.png')">
+        <img src="imagenes/CamisaFormalHombre.webp" alt="Camisa Formal Hombre">
+        <h2>Camisa Formal Hombre</h2>
+        <p class="precio">$39.99</p>
+        <p>Camisa formal para ocasiones especiales.</p>
+    </div>
+
+    <!-- Producto 6 -->
+    <div class="producto" onclick="mostrarDetalle('Sweater Cuello Alto Hombre', 28.99, 'imagenes/carrito.png')">
+        <img src="imagenes/SweaterCuelloAltoHombre.jpg" alt="Sweater Cuello Alto Hombre">
+        <h2>Sweater Cuello Alto Hombre</h2>
+        <p class="precio">$28.99</p>
+        <p>Sweater cuello alto para mantenerte abrigado con estilo.</p>
+    </div>
+
+    <!-- Producto 7 -->
+    <div class="producto" onclick="mostrarDetalle('Zapatos de Vestir Hombre', 49.99, 'imagenes/carrito.png')">
+        <img src="imagenes/ZapatosVestirHombre.jpg" alt="Zapatos de Vestir Hombre">
+        <h2>Zapatos de Vestir Hombre</h2>
+        <p class="precio">$49.99</p>
+        <p>Zapatos elegantes para completar tu look formal.</p>
+    </div>
+
+    <!-- Producto 8 -->
+    <div class="producto" onclick="mostrarDetalle('Gorra Deportiva Hombre', 18.99, 'imagenes/carrito.png')">
+        <img src="imagenes/GorraDeportivaHombre.webp" alt="Gorra Deportiva Hombre">
+        <h2>Gorra Deportiva Hombre</h2>
+        <p class="precio">$18.99</p>
+        <p>Gorra deportiva para protegerte del sol con estilo.</p>
+    </div>
+
+    <!-- Producto 9 -->
+    <div class="producto" onclick="mostrarDetalle('Shorts Deportivos Hombre', 24.99, 'imagenes/carrito.png')">
+        <img src="imagenes/ShortsDeportivosHombre.webp" alt="Shorts Deportivos Hombre">
+        <h2>Shorts Deportivos Hombre</h2>
+        <p class="precio">$24.99</p>
+        <p>Shorts deportivos para actividades f&iacute;sicas con comodidad.</p>
+    </div>
+
+    <!-- Producto 10 -->
+    <div class="producto" onclick="mostrarDetalle('Sombrero de Moda Hombre', 14.99, 'imagenes/carrito.png')">
+        <img src="imagenes/SombreroModaHombre.jpg" alt="Sombrero de Moda Hombre">
+        <h2>Sombrero de Moda Hombre</h2>
+        <p class="precio">$14.99</p>
+        <p>Sombrero de moda para un toque distintivo.</p>
+    </div>
+
+ <script>
+        var productoActual = {};
+
+        function mostrarDetalle(nombre, precio, imagenSrc) {
+            productoActual = { nombre: nombre, precio: precio, imagenSrc: imagenSrc };
+
+            document.getElementById('detalleImagen').innerHTML = `<img src="${imagenSrc}" alt="${nombre}" width="200" height="200"/>`;
+            document.getElementById('detalleNombre').innerText = `Nombre: ${nombre}`;
+            document.getElementById('detallePrecio').innerText = `Precio: $${precio}`;
+            document.getElementById('detallesProducto').style.display = 'block';
+        }
+
+        function agregarAlCarrito() {
+            var image_src = productoActual.imagenSrc;
+            var item_name = productoActual.nombre;
+            var price = productoActual.precio;
+
+            var dt = '&image=' + image_src + '&item_name=' + item_name + '&price=' + price;
+            var url = 'http://localhost/webFinalV2/checkout.php?' + dt;
+
+            $.ajax({
+                url: url,
+                method: 'GET',
+                success: function () {
+                    window.location.href = url;
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

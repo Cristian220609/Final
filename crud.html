@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/estilos.css" rel='stylesheet' type='text/css' />
+    <title>Gestión de Productos</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #a2d3f3;
+        }
+
+        header {
+            text-align: center;
+            margin-top: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 100%;
+            box-sizing: border-box;
+            max-width: 1000px; 
+            padding: 30px; 
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            margin: 20px 0;
+        }
+
+        form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px; 
+        }
+
+        form select,
+        form input[type="number"],
+        form input[type="date"] {
+            width: 100%;
+            padding: 12px; 
+            margin-bottom: 20px; 
+            border: 2px solid #ccc; 
+            border-radius: 5px; 
+            box-sizing: border-box;
+            font-size: 30px; 
+        }
+
+        form button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 30px; 
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            background-color: #fff;
+            padding: 20px; 
+            border: 2px solid #ccc; 
+            border-radius: 5px;
+            margin-bottom: 15px; 
+        }
+
+        ul li:hover {
+            background-color: #f9f9f9;
+        }
+
+        button {
+            padding: 8px 15px; 
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 30px; 
+        }
+
+        button.delete {
+            background-color: #ff4b4b;
+        }
+
+
+        #mensaje {
+            text-align: center;
+            margin: 15px 0; 
+            padding: 15px; 
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 30px; 
+        }
+
+        #mensaje.success {
+            background-color: #4caf50;
+        }
+
+        #mensaje.error {
+            background-color: #ff4b4b;
+        }
+
+        #mensaje.info {
+            background-color: #3498db;
+        }
+
+        h2 {
+            font-size: 30px;
+        }
+
+        .texto {
+            font-size: 30px;
+        }
+
+        #btnVolver {
+            display: block;
+            margin-top: 20px; 
+            padding: 15px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 30px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        #btnVolver:hover {
+            background-color: #555;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h2>Gestión de Productos</h2>
+        </header>
+        <form id="agregarProductoForm" method="post" action="procesar.php">
+            <label for="producto" class="texto">Nombre del producto:</label>
+            <select id="producto" name="producto" required>
+                <option value="Camisa" class="texto">Camisa</option>
+                <option value="Pantalón" class="texto" >Pantalón</option>
+            </select>
+            <p></p>
+            <label for="cantidad" class="texto" >Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad" required>
+            <label for="precio" class="texto" >Precio:</label>
+            <input type="number" id="precio" name="precio" required>
+            <label for="fecha" class="texto">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" required>
+            <button type="submit" class="texto">Agregar</button>
+       </form>
+       <a id="btnVolver" href="index.php">Volver al Inicio</a>
+       <a id="btnVolver" href="TablaContenido.php">Contenidos</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="css/login_overlay.css" rel='stylesheet' type='text/css' />
+    <link href="css/style6.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="css/shop.css" type="text/css" />
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href="css/estilos.css" rel='stylesheet' type='text/css' />
+    <link href="css/fontawesome-all.css" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet" />
+    <link
+        href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+        rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .producto {
+            width: 250px;
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+        }
+
+        h2,
+        p,
+        .precio {
+            margin: 0;
+            font-size: 22px;
+            font-weight: bold !important;
+        }
+
+        p{
+            color: #0056b3;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .precio {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .carrito-enlace {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        .carrito-enlace:hover {
+            background-color: #0056b3;
+        }
+
+        .carrito-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .carrito-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .carrito-lista {
+            list-style: none;
+            padding: 0;
+        }
+
+        .carrito-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+
+        .carrito-item img {
+            max-width: 60px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="productosDivision">
+        <marquee direction="left" behavior="scroll" scrollamount="20">
+            <h1>Productos en oferta!</h1>
+        </marquee>
+    </div>
+    <div class="banner-top container-fluid centrarReferencias">
+        <a href="Ropa.html" class="referencia">Ropa</a>
+        <a href="Accesorios.html" class="referencia">Accesorios</a>
+        <a href="Hombre.html" class="referencia">Ropa de Varones</a>
+        <a href="Ninos.html" class="referencia">Ropa de ni&ntilde;os</a>
+        <a href="Damas.html" class="referencia">Ropa de damas</a>
+    </div>
+
+    <div id="detallesProducto" style="display: none;">
+        <h3>Detalles del Producto</h3>
+        <div id="detalleImagen"></div>
+        <div id="detalleNombre"></div>
+        <div id="detallePrecio"></div>
+        <input type="submit" name="submit" value="check-in" class="buy_now" onclick="agregarAlCarrito()">
+    </div>
+
+    <!-- Producto 1 -->
+    <div class="producto" onclick="mostrarDetalle('Camiseta Casual', 19.99, 'imagenes/carrito.png')">
+        <img src="imagenes/CamisaCasual.webp" alt="Producto 1">
+        <h2>Camiseta Casual</h2>
+        <p class="precio">$19.99</p>
+        <p>Camiseta casual de algod&oacute;n para un look c&oacute;modo y moderno.</p>
+    </div>
+
+    <!-- Producto 2 -->
+    <div class="producto" onclick="mostrarDetalle('Jeans Slim Fit', 29.99, 'imagenes/carrito.png')">
+        <img src="imagenes/Jean.jpg" alt="Producto 2">
+        <h2>Jeans Slim Fit</h2>
+        <p class="precio">$29.99</p>
+        <p>Jeans ajustados para un estilo moderno y c&oacute;modo.</p>
+    </div>
+
+    <!-- Producto 3 -->
+    <div class="producto" onclick="mostrarDetalle('Chaqueta de Cuero', 89.99, 'imagenes/carrito.png')">
+        <img src="imagenes/chaqueta.webp" alt="Producto 3">
+        <h2>Chaqueta de Cuero</h2>
+        <p class="precio">$89.99</p>
+        <p>Chaqueta de cuero para un look elegante y atemporal.</p>
+    </div>
+
+    <!-- Producto 4 -->
+    <div class="producto" onclick="mostrarDetalle('Vestido Floral', 49.99, 'imagenes/carrito.png')">
+        <img src="imagenes/vestiloFloral.webp" alt="Producto 4">
+        <h2>Vestido Floral</h2>
+        <p class="precio">$49.99</p>
+        <p>Vestido floral perfecto para ocasiones especiales.</p>
+    </div>
+
+    <!-- Producto 5 -->
+    <div class="producto" onclick="mostrarDetalle('Zapatillas Deportivas', 39.99, 'imagenes/carrito.png')">
+        <img src="imagenes/ZapatillasDeportivas.jpg" alt="Producto 5">
+        <h2>Zapatillas Deportivas</h2>
+        <p class="precio">$39.99</p>
+        <p>Zapatillas deportivas para un estilo activo y c&oacute;modo.</p>
+    </div>
+
+    <!-- Producto 6 -->
+    <div class="producto" onclick="mostrarDetalle('Sudadera con Capucha', 24.99, 'imagenes/carrito.png')">
+        <img src="imagenes/Sudadera.jpg" alt="Producto 6">
+        <h2>Sudadera con Capucha</h2>
+        <p class="precio">$24.99</p>
+        <p>Sudadera con capucha para mantenerte abrigado y con estilo.</p>
+    </div>
+
+    <!-- Producto 7 -->
+    <div class="producto" onclick="mostrarDetalle('Pantalones de Vestir', 34.99, 'imagenes/carrito.png')">
+        <img style="height: 40%;" src="imagenes/PantalonVestir.webp" alt="Producto 7">
+        <h2>Pantalones de Vestir</h2>
+        <p class="precio">$34.99</p>
+        <p>Pantalones de vestir para un look elegante en cualquier ocasi&oacute;n.</p>
+    </div>
+
+    <!-- Producto 8 -->
+    <div class="producto" onclick="mostrarDetalle('Blusa Elegante', 29.99, 'imagenes/carrito.png')">
+        <img src="imagenes/blusaEelgante.webp" alt="Producto 8">
+        <h2>Blusa Elegante</h2>
+        <p class="precio">$29.99</p>
+        <p>Blusa elegante para un estilo sofisticado y vers&aacute;til.</p>
+    </div>
+
+    <!-- Producto 9 -->
+    <div class="producto" onclick="mostrarDetalle('Gorra Deportiva', 14.99, 'imagenes/carrito.png')">
+        <img src="imagenes/GorraDe.webp" alt="Producto 9">
+        <h2>Gorra Deportiva</h2>
+        <p class="precio">$14.99</p>
+        <p>Gorra deportiva para protegerte del sol con estilo.</p>
+    </div>
+
+    <!-- Producto 10 -->
+    <div class="producto" onclick="mostrarDetalle('Falda Plisada', 19.99, 'imagenes/carrito.png')">
+        <img src="imagenes/FaltaPisada.webp" alt="Producto 10">
+        <h2>Falda Plisada</h2>
+        <p class="precio">$19.99</p>
+        <p>Falda plisada para un look femenino y elegante.</p>
+    </div>
+
+    <!-- Producto 11 -->
+    <div class="producto" onclick="mostrarDetalle('Sweater Casual', 27.99, 'imagenes/carrito.png')">
+        <img src="imagenes/SweaterCasual.avif" alt="Producto 11">
+        <h2>Sweater Casual</h2>
+        <p class="precio">$27.99</p>
+        <p>Sweater casual para un estilo c&oacute;modo y relajado.</p>
+    </div>
+
+    <!-- Producto 12 -->
+    <div class="producto" onclick="mostrarDetalle('Gafas de Sol Elegantes', 39.99, 'imagenes/carrito.png')">
+        <img src="imagenes/GafasSol.webp" alt="Producto 12">
+        <h2>Gafas de Sol Elegantes</h2>
+        <p class="precio">$39.99</p>
+        <p>Gafas de sol elegantes para complementar tu estilo.</p>
+    </div>
+
+    <!-- Producto 13 -->
+    <div class="producto" onclick="mostrarDetalle('Shorts Deportivos', 22.99, 'imagenes/carrito.png')">
+        <img src="imagenes/ShortsDeportivos.webp" alt="Producto 13">
+        <h2>Shorts Deportivos</h2>
+        <p class="precio">$22.99</p>
+        <p>Shorts deportivos para actividades f&iacute;sicas con comodidad.</p>
+    </div>
+
+    <!-- Producto 14 -->
+    <div class="producto" onclick="mostrarDetalle('Bolso Elegante', 45.99, 'imagenes/carrito.png')">
+        <img src="imagenes/BolsoElegante.avif" alt="Producto 14">
+        <h2>Bolso Elegante</h2>
+        <p class="precio">$45.99</p>
+        <p>Bolso elegante para llevar tus pertenencias con estilo.</p>
+    </div>
+
+    <!-- Producto 15 -->
+    <div class="producto" onclick="mostrarDetalle('Reloj Clásico', 59.99, 'imagenes/carrito.png')">
+        <img src="imagenes/RelojClasico.webp" alt="Producto 15">
+        <h2>Reloj Clásico</h2>
+        <p class="precio">$59.99</p>
+        <p>Reloj cl&aacute;sico para un toque de elegancia en tu mu&ntilde;eca.</p>
+    </div>
+
+    <!-- Producto 16 -->
+    <div class="producto" onclick="mostrarDetalle('Chaleco Casual', 32.99, 'imagenes/carrito.png')">
+        <img src="imagenes/ChalecoCasual.webp" alt="Producto 16">
+        <h2>Chaleco Casual</h2>
+        <p class="precio">$32.99</p>
+        <p>Chaleco casual para un look desenfadado y moderno.</p>
+    </div>
+
+    <!-- Producto 17 -->
+    <div class="producto" onclick="mostrarDetalle('Botines de Moda', 54.99, 'imagenes/carrito.png')">
+        <img src="imagenes/BotinesModa.jpg" alt="Producto 17">
+        <h2>Botines de Moda</h2>
+        <p class="precio">$54.99</p>
+        <p>Botines de moda para destacar en cualquier ocasi&oacute;n.</p>
+    </div>
+
+    <!-- Producto 18 -->
+    <div class="producto" onclick="mostrarDetalle('Vestido de Noche', 79.99, 'imagenes/carrito.png')">
+        <img src="imagenes/VestidoNoche.webp" alt="Producto 18">
+        <h2>Vestido de Noche</h2>
+        <p class="precio">$79.99</p>
+        <p>Vestido de noche para lucir elegante en eventos especiales.</p>
+    </div>
+
+    <!-- Producto 19 -->
+    <div class="producto" onclick="mostrarDetalle('Gorra Urbana', 18.99, 'imagenes/carrito.png')">
+        <img src="imagenes/GorraUrbana.jpg" alt="Producto 19">
+        <h2>Gorra Urbana</h2>
+        <p class="precio">$18.99</p>
+        <p>Gorra urbana para un estilo moderno en la ciudad.</p>
+    </div>
+
+    <!-- Producto 20 -->
+    <div class="producto" onclick="mostrarDetalle('Abrigo Elegante', 89.99, 'imagenes/carrito.png')">
+        <img src="imagenes/AbrigoElegante.jpg" alt="Producto 20">
+        <h2>Abrigo Elegante</h2>
+        <p class="precio">$89.99</p>
+        <p>Abrigo elegante para mantenerte c&aacute;lido con estilo.</p>
+    </div>
+
+    <script>
+        var productoActual = {};
+
+        function mostrarDetalle(nombre, precio, imagenSrc) {
+            productoActual = { nombre: nombre, precio: precio, imagenSrc: imagenSrc };
+
+            // Mostrar detalles
+            document.getElementById('detalleImagen').innerHTML = `<img src="${imagenSrc}" alt="${nombre}" width="200" height="200"/>`;
+            document.getElementById('detalleNombre').innerText = `Nombre: ${nombre}`;
+            document.getElementById('detallePrecio').innerText = `Precio: $${precio}`;
+            document.getElementById('detallesProducto').style.display = 'block';
+        }
+
+        function agregarAlCarrito() {
+            var image_src = productoActual.imagenSrc;
+            var item_name = productoActual.nombre;
+            var price = productoActual.precio;
+
+            var dt = '&image=' + image_src + '&item_name=' + item_name + '&price=' + price;
+            var url = 'http://localhost/webFinalV2/checkout.php?' + dt;
+
+            $.ajax({
+                url: url,
+                method: 'GET',
+                success: function () {
+                    window.location.href = url;
+                }
+            });
+        }
+    </script>
+</body>
+</html>

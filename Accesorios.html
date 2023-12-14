@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="css/login_overlay.css" rel='stylesheet' type='text/css' />
+    <link href="css/style6.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="css/shop.css" type="text/css" />
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href="css/estilos.css" rel='stylesheet' type='text/css' />
+    <link href="css/fontawesome-all.css" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet" />
+    <link
+        href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+        rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .producto {
+            width: 250px;
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+        }
+
+        h2,
+        p,
+        .precio {
+            margin: 0;
+            font-size: 22px;
+            font-weight: bold !important;
+        }
+
+        p {
+            color: #0056b3;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .precio {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .carrito-enlace {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        .carrito-enlace:hover {
+            background-color: #0056b3;
+        }
+
+        .carrito-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .carrito-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .carrito-lista {
+            list-style: none;
+            padding: 0;
+        }
+
+        .carrito-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+
+        .carrito-item img {
+            max-width: 60px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="productosDivision">
+        <marquee direction="left" behavior="scroll" scrollamount="20">
+            <h1>Productos en oferta!</h1>
+        </marquee>
+    </div>
+    <div class="banner-top container-fluid centrarReferencias">
+        <a href="Ropa.html" class="referencia">Ropa</a>
+        <a href="Accesorios.html" class="referencia">Accesorios</a>
+        <a href="Hombre.html" class="referencia">Ropa de Varones</a>
+        <a href="Ninos.html" class="referencia">Ropa de ni&ntilde;os</a>
+        <a href="Damas.html" class="referencia">Ropa de damas</a>
+    </div>
+
+    <div id="detallesProducto" style="display: none;">
+        <h3>Detalles del Producto</h3>
+        <div id="detalleImagen"></div>
+        <div id="detalleNombre"></div>
+        <div id="detallePrecio"></div>
+        <input type="submit" name="submit" value="check-in" class="buy_now" onclick="agregarAlCarrito()">
+    </div>
+
+    <!-- Producto 1 -->
+    <div class="producto" onclick="mostrarDetalle('Collar Elegante', 14.99, 'imagenes/carrito.png')">
+        <img src="imagenes/CollarElegante.webp" alt="Collar Elegante">
+        <h2>Collar Elegante</h2>
+        <p class="precio">$14.99</p>
+        <p>Collar elegante para complementar tu estilo.</p>
+    </div>
+
+    <!-- Producto 2 -->
+    <div class="producto" onclick="mostrarDetalle('Bolso de Cuero', 39.99, 'imagenes/carrito.png')">
+        <img src="imagenes/BolsoCuero.jpg" alt="Bolso de Cuero">
+        <h2>Bolso de Cuero</h2>
+        <p class="precio">$39.99</p>
+        <p>Bolso de cuero para un toque sofisticado.</p>
+    </div>
+
+    <!-- Producto 3 -->
+    <div class="producto" onclick="mostrarDetalle('Reloj Deportivo', 29.99, 'imagenes/carrito.png')">
+        <img src="imagenes/Reloj Deportivo.webp" alt="Reloj Deportivo">
+        <h2>Reloj Deportivo</h2>
+        <p class="precio">$29.99</p>
+        <p>Reloj deportivo para un estilo activo.</p>
+    </div>
+
+    <!-- Producto 4 -->
+    <div class="producto" onclick="mostrarDetalle('Gafas de Sol Modernas', 19.99, 'imagenes/carrito.png')">
+        <img src="imagenes/GafasSolModernas.jpg" alt="Gafas de Sol Modernas">
+        <h2>Gafas de Sol Modernas</h2>
+        <p class="precio">$19.99</p>
+        <p>Gafas de sol modernas para protecci&oacute;n y estilo.</p>
+    </div>
+
+    <!-- Producto 5 -->
+    <div class="producto" onclick="mostrarDetalle('Sombrero de Verano', 12.99, 'imagenes/carrito.png')">
+        <img src="imagenes/SombreroVerano.webp" alt="Sombrero de Verano">
+        <h2>Sombrero de Verano</h2>
+        <p class="precio">$12.99</p>
+        <p>Sombrero de verano para un look fresco.</p>
+    </div>
+
+    <!-- Producto 6 -->
+    <div class="producto" onclick="mostrarDetalle('Bufanda Suave', 9.99, 'imagenes/carrito.png')">
+        <img src="imagenes/BufandaSuave.avif" alt="Bufanda Suave">
+        <h2>Bufanda Suave</h2>
+        <p class="precio">$9.99</p>
+        <p>Bufanda suave para mantenerte abrigado con estilo.</p>
+    </div>
+
+    <!-- Producto 7 -->
+    <div class="producto" onclick="mostrarDetalle('Pulsera de Moda', 8.99, 'imagenes/carrito.png')">
+        <img src="imagenes/PulseraModa.webp" alt="Pulsera de Moda">
+        <h2>Pulsera de Moda</h2>
+        <p class="precio">$8.99</p>
+        <p>Pulsera de moda para un toque chic en tu mu&ntilde;eca.</p>
+    </div>
+
+    <!-- Producto 8 -->
+    <div class="producto" onclick="mostrarDetalle('Anillo Elegante', 16.99, 'imagenes/carrito.png')">
+        <img src="imagenes/AnilloElegante.jpg" alt="Anillo Elegante">
+        <h2>Anillo Elegante</h2>
+        <p class="precio">$16.99</p>
+        <p>Anillo elegante para realzar tu estilo.</p>
+    </div>
+
+    <!-- Producto 9 -->
+    <div class="producto" onclick="mostrarDetalle('Cinturón de Cuero', 22.99, 'imagenes/carrito.png')">
+        <img src="imagenes/CinturonCuero.jpg" alt="Cinturón de Cuero">
+        <h2>Cintur&oacute;n de Cuero</h2>
+        <p class="precio">$22.99</p>
+        <p>Cintur&oacute;n de cuero para un look cl&aacute;sico.</p>
+    </div>
+
+    <!-- Producto 10 -->
+    <div class="producto" onclick="mostrarDetalle('Guantes de Invierno', 14.99, 'imagenes/carrito.png')">
+        <img src="imagenes/GuantesInvierno.jpg" alt="Guantes de Invierno">
+        <h2>Guantes de Invierno</h2>
+        <p class="precio">$14.99</p>
+        <p>Guantes de invierno para protegerte del fr&iacute;o con estilo.</p>
+    </div>
+
+    <!-- Producto 11 -->
+    <div class="producto" onclick="mostrarDetalle('Billetera de Moda', 18.99, 'imagenes/carrito.png')">
+        <img src="imagenes/BilleteraModa.webp" alt="Billetera de Moda">
+        <h2>Billetera de Moda</h2>
+        <p class="precio">$18.99</p>
+        <p>Billetera de moda para llevar tus esenciales con elegancia.</p>
+    </div>
+
+    <!-- Producto 12 -->
+    <div class="producto" onclick="mostrarDetalle('Pañuelo Estampado', 10.99, 'imagenes/carrito.png')">
+        <img src="imagenes/Estampado.webp" alt="Pañuelo Estampado">
+        <h2>Pa&ntilde;uelo Estampado</h2>
+        <p class="precio">$10.99</p>
+        <p>Pa&ntilde;uelo estampado para un toque de color en tu outfit.</p>
+    </div>
+
+    <!-- Producto 13 -->
+    <div class="producto" onclick="mostrarDetalle('Paraguas Resistente', 16.99, 'imagenes/carrito.png')">
+        <img src="imagenes/ParaguasResistente.jpg" alt="Paraguas Resistente">
+        <h2>Paraguas Resistente</h2>
+        <p class="precio">$16.99</p>
+        <p>Paraguas resistente para d&iacute;as lluviosos con estilo.</p>
+    </div>
+
+    <!-- Producto 14 -->
+    <div class="producto" onclick="mostrarDetalle('Pendientes de Perlas', 12.99, 'imagenes/carrito.png')">
+        <img src="imagenes/PendientesPerlas.jpg" alt="Pendientes de Perlas">
+        <h2>Pendientes de Perlas</h2>
+        <p class="precio">$12.99</p>
+        <p>Pendientes de perlas para un look refinado.</p>
+    </div>
+
+    <!-- Producto 15 -->
+    <div class="producto" onclick="mostrarDetalle('Corbata Clásica', 15.99, 'imagenes/carrito.png')">
+        <img src="imagenes/CorbataClasica.jpg" alt="Corbata Clásica">
+        <h2>Corbata Cl&aacute;sica</h2>
+        <p class="precio">$15.99</p>
+        <p>Corbata cl&aacute;sica para eventos formales.</p>
+    </div>
+</body>
+
+ <script>
+        var productoActual = {};
+
+        function mostrarDetalle(nombre, precio, imagenSrc) {
+            productoActual = { nombre: nombre, precio: precio, imagenSrc: imagenSrc };
+
+            document.getElementById('detalleImagen').innerHTML = `<img src="${imagenSrc}" alt="${nombre}" width="200" height="200"/>`;
+            document.getElementById('detalleNombre').innerText = `Nombre: ${nombre}`;
+            document.getElementById('detallePrecio').innerText = `Precio: $${precio}`;
+            document.getElementById('detallesProducto').style.display = 'block';
+        }
+
+        function agregarAlCarrito() {
+            var image_src = productoActual.imagenSrc;
+            var item_name = productoActual.nombre;
+            var price = productoActual.precio;
+
+            var dt = '&image=' + image_src + '&item_name=' + item_name + '&price=' + price;
+            var url = 'http://localhost/webFinalV2/checkout.php?' + dt;
+
+            $.ajax({
+                url: url,
+                method: 'GET',
+                success: function () {
+                    window.location.href = url;
+                }
+            });
+        }
+    </script>
+</html>

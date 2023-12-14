@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="css/login_overlay.css" rel='stylesheet' type='text/css' />
+    <link href="css/style6.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="css/shop.css" type="text/css" />
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href="css/estilos.css" rel='stylesheet' type='text/css' />
+    <link href="css/fontawesome-all.css" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet" />
+    <link
+        href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+        rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .producto {
+            width: 250px;
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+        }
+
+        h2,
+        p,
+        .precio {
+            margin: 0;
+            font-size: 22px;
+            font-weight: bold !important;
+        }
+
+        p {
+            color: #0056b3;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .precio {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .carrito-enlace {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        .carrito-enlace:hover {
+            background-color: #0056b3;
+        }
+
+        .carrito-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .carrito-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .carrito-lista {
+            list-style: none;
+            padding: 0;
+        }
+
+        .carrito-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+
+        .carrito-item img {
+            max-width: 60px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="productosDivision">
+        <marquee direction="left" behavior="scroll" scrollamount="20">
+            <h1>Productos en oferta!</h1>
+        </marquee>
+    </div>
+    <div class="banner-top container-fluid centrarReferencias">
+        <a href="Ropa.html" class="referencia">Ropa</a>
+        <a href="Accesorios.html" class="referencia">Accesorios</a>
+        <a href="Hombre.html" class="referencia">Ropa de Varones</a>
+        <a href="Ninos.html" class="referencia">Ropa de ni&ntilde;os</a>
+        <a href="Damas.html" class="referencia">Ropa de damas</a>
+    </div>
+
+    <div id="detallesProducto" style="display: none;">
+        <h3>Detalles del Producto</h3>
+        <div id="detalleImagen"></div>
+        <div id="detalleNombre"></div>
+        <div id="detallePrecio"></div>
+        <input type="submit" name="submit" value="check-in" class="buy_now" onclick="agregarAlCarrito()">
+    </div>
+
+    <!-- Producto 1 -->
+    <div class="producto" onclick="mostrarDetalle('Conjunto Infantil', 29.99, 'imagenes/carrito.png')">
+        <img src="imagenes/ConjuntoInfantil.jpg" alt="Conjunto Infantil">
+        <h2>Conjunto Infantil</h2>
+        <p class="precio">$29.99</p>
+        <p>Conjunto infantil para un estilo adorable y c&oacute;modo.</p>
+    </div>
+
+    <!-- Producto 2 -->
+    <div class="producto" onclick="mostrarDetalle('Vestido de Princesa', 39.99, 'imagenes/carrito.png')">
+        <img src="imagenes/VestidoPrincesa.avif" alt="Vestido de Princesa">
+        <h2>Vestido de Princesa</h2>
+        <p class="precio">$39.99</p>
+        <p>Vestido de princesa para ocasiones especiales.</p>
+    </div>
+
+    <!-- Producto 3 -->
+    <div class="producto" onclick="mostrarDetalle('Camiseta Divertida', 14.99, 'imagenes/carrito.png')">
+        <img src="imagenes/CamisetaDivertida.jpg" alt="Camiseta Divertida">
+        <h2>Camiseta Divertida</h2>
+        <p class="precio">$14.99</p>
+        <p>Camiseta divertida para un look juguet&oacute;n.</p>
+    </div>
+
+    <!-- Producto 4 -->
+    <div class="producto" onclick="mostrarDetalle('Jeans Infantiles', 24.99, 'imagenes/carrito.png')">
+        <img src="imagenes/JeansInfantiles.avif" alt="Jeans Infantiles">
+        <h2>Jeans Infantiles</h2>
+        <p class="precio">$24.99</p>
+        <p>Jeans infantiles para un estilo casual y c&oacute;modo.</p>
+    </div>
+
+    <!-- Producto 5 -->
+    <div class="producto" onclick="mostrarDetalle('Sudadera de Dibujos', 19.99, 'imagenes/carrito.png')">
+        <img src="imagenes/SudaderaDibujos.webp" alt="Sudadera de Dibujos">
+        <h2>Sudadera de Dibujos</h2>
+        <p class="precio">$19.99</p>
+        <p>Sudadera con dibujos para un look l&uacute;dico.</p>
+    </div>
+
+    <!-- Producto 6 -->
+    <div class="producto" onclick="mostrarDetalle('Vestido Floral Niña', 29.99, 'imagenes/carrito.png')">
+        <img src="imagenes/VestidoFloralNina.jpg" alt="Vestido Floral Niña">
+        <h2>Vestido Floral Ni&ntilde;a</h2>
+        <p class="precio">$29.99</p>
+        <p>Vestido floral para ni&ntilde;as con estilo encantador.</p>
+    </div>
+
+    <!-- Producto 7 -->
+    <div class="producto" onclick="mostrarDetalle('Camisa a Rayas', 17.99, 'imagenes/carrito.png')">
+        <img src="imagenes/CamisaRayas.jpeg" alt="Camisa a Rayas">
+        <h2>Camisa a Rayas</h2>
+        <p class="precio">$17.99</p>
+        <p>Camisa a rayas para un look cl&aacute;sico y fresco.</p>
+    </div>
+
+    <!-- Producto 8 -->
+    <div class="producto" onclick="mostrarDetalle('Pantalones Cortos Niño', 14.99, 'imagenes/carrito.png')">
+        <img src="imagenes/PantalonesCortosNino.webp" alt="Pantalones Cortos Niño">
+        <h2>Pantalones Cortos Ni&ntilde;o</h2>
+        <p class="precio">$14.99</p>
+        <p>Pantalones cortos para ni&ntilde;os con comodidad.</p>
+    </div>
+
+    <!-- Producto 9 -->
+    <div class="producto" onclick="mostrarDetalle('Blusa con Volantes', 22.99, 'imagenes/carrito.png')">
+        <img src="imagenes/BlusaVolantes.jpg" alt="Blusa con Volantes">
+        <h2>Blusa con Volantes</h2>
+        <p class="precio">$22.99</p>
+        <p>Blusa con volantes para un look encantador.</p>
+    </div>
+
+    <!-- Producto 10 -->
+    <div class="producto" onclick="mostrarDetalle('Shorts Deportivos Niña', 16.99, 'imagenes/carrito.png')">
+        <img src="imagenes/ShortsDeportivosNina.avif" alt="Shorts Deportivos Niña">
+        <h2>Shorts Deportivos Ni&ntilde;a</h2>
+        <p class="precio">$16.99</p>
+        <p>Shorts deportivos para ni&ntilde;as activas.</p>
+    </div>
+
+    <!-- Producto 11 -->
+    <div class="producto" onclick="mostrarDetalle('Pijama Infantil', 19.99, 'imagenes/carrito.png')">
+        <img src="imagenes/PijamaInfantil.jpg" alt="Pijama Infantil">
+        <h2>Pijama Infantil</h2>
+        <p class="precio">$19.99</p>
+        <p>Pijama infantil para noches c&oacute;modas.</p>
+    </div>
+
+    <!-- Producto 12 -->
+    <div class="producto" onclick="mostrarDetalle('Gorra Niño', 11.99, 'imagenes/carrito.png')">
+        <img src="imagenes/GorraNino.jpg" alt="Gorra Niño">
+        <h2>Gorra Ni&ntilde;o</h2>
+        <p class="precio">$11.99</p>
+        <p>Gorra para ni&ntilde;os con estilo y protecci&oacute;n.</p>
+    </div>
+
+    <!-- Producto 13 -->
+    <div class="producto" onclick="mostrarDetalle('Jersey Niña', 27.99, 'imagenes/carrito.png')">
+        <img src="imagenes/JerseyNina.avif" alt="Jersey Niña">
+        <h2>Jersey Ni&ntilde;a</h2>
+        <p class="precio">$27.99</p>
+        <p>Jersey para ni&ntilde;as con dise&ntilde;o encantador.</p>
+    </div>
+
+    <!-- Producto 14 -->
+    <div class="producto" onclick="mostrarDetalle('Falda Plisada Niña', 18.99, 'imagenes/carrito.png')">
+        <img src="imagenes/FaldaPlisadaNina.jpg" alt="Falda Plisada Niña">
+        <h2>Falda Plisada Ni&ntilde;a</h2>
+        <p class="precio">$18.99</p>
+        <p>Falda plisada para ni&ntilde;as elegantes.</p>
+    </div>
+
+    <!-- Producto 15 -->
+    <div class="producto" onclick="mostrarDetalle('Calcetines Divertidos', 8.99, 'imagenes/carrito.png')">
+        <img src="imagenes/CalcetinesDivertidos.jpg" alt="Calcetines Divertidos">
+        <h2>Calcetines Divertidos</h2>
+        <p class="precio">$8.99</p>
+        <p>Calcetines con dise&ntilde;os divertidos para ni&ntilde;os.</p>
+    </div>
+</body>
+<script>
+    var productoActual = {};
+
+    function mostrarDetalle(nombre, precio, imagenSrc) {
+        productoActual = { nombre: nombre, precio: precio, imagenSrc: imagenSrc };
+
+        // Mostrar detalles
+        document.getElementById('detalleImagen').innerHTML = `<img src="${imagenSrc}" alt="${nombre}" width="200" height="200"/>`;
+        document.getElementById('detalleNombre').innerText = `Nombre: ${nombre}`;
+        document.getElementById('detallePrecio').innerText = `Precio: $${precio}`;
+        document.getElementById('detallesProducto').style.display = 'block';
+    }
+
+    function agregarAlCarrito() {
+        var image_src = productoActual.imagenSrc;
+        var item_name = productoActual.nombre;
+        var price = productoActual.precio;
+
+        var dt = '&image=' + image_src + '&item_name=' + item_name + '&price=' + price;
+        var url = 'http://localhost/webFinalV2/checkout.php?' + dt;
+
+        $.ajax({
+            url: url,
+            method: 'GET',
+            success: function () {
+                window.location.href = url;
+            }
+        });
+    }
+</script>
+</html>

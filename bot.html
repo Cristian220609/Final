@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Integration</title>
+
+<script type='text/javascript' data-cfasync='false'>
+        window.purechatApi = {
+            l: [],
+            t: [],
+            on: function () {
+                this.l.push(arguments);
+            }
+        };
+        (function () {
+            var done = false;
+            var script = document.createElement('script');
+            script.async = true;
+            script.type = 'text/javascript';
+            script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript';
+            document.getElementsByTagName('head').item(0).appendChild(script);
+            script.onreadystatechange = script.onload = function (e) {
+                if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) {
+                    var w = new PCWidget({
+                        c: '82ccf71e-a090-4a02-914b-77af7e93aa93',
+                        f: true
+                    });
+                    done = true;
+                }
+            };
+        })();
+    </script>
+</head>
+<body>
+    <h1>Bienvenido a mi sitio web</h1>
+    <p>¡Explora y disfruta de nuestro contenido!</p>
+</body>
+</html>
